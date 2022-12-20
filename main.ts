@@ -2,11 +2,11 @@ let distance = 0
 let strip = neopixel.create(DigitalPin.P0, 4, NeoPixelMode.RGB)
 strip.clear()
 basic.showLeds(`
+    # . . . .
+    # . . . .
+    # . . . .
     . . . . .
-    . # . # .
-    . . . . .
-    # . . . #
-    . # # # .
+    # . . . .
     `)
 basic.pause(1000)
 basic.forever(function () {
@@ -17,16 +17,17 @@ basic.forever(function () {
     )
     if (distance > 4) {
         for (let index = 0; index <= 3; index++) {
-            strip.setPixelColor(index, neopixel.rgb(0, 255, 0))
+            strip.setPixelColor(index, neopixel.colors(NeoPixelColors.Green))
         }
     } else if (distance <= 1) {
-        for (let index = 0; index <= 3; index++) {
-            strip.setPixelColor(index, neopixel.rgb(255, 0, 0))
-        }
-    } else {
         for (let index = 0; index <= distance; index++) {
-            strip.setPixelColor(index, neopixel.rgb(0, 0, 255))
+            strip.setPixelColor(index, neopixel.colors(NeoPixelColors.Red))
+        }
+    } else if (distance <= 4) {
+        for (let index = 0; index <= 3; index++) {
+            strip.setPixelColor(index, neopixel.colors(NeoPixelColors.Blue))
         }
     }
+    strip.show()
     basic.pause(250)
 })
