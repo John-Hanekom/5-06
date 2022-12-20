@@ -20,14 +20,15 @@ basic.forever(function () {
             strip.setPixelColor(index, neopixel.colors(NeoPixelColors.Green))
         }
     } else if (distance <= 1) {
-        for (let index = 0; index <= distance; index++) {
+        for (let index = 0; index <= 3; index++) {
             strip.setPixelColor(index, neopixel.colors(NeoPixelColors.Red))
         }
     } else if (distance <= 4) {
-        for (let index = 0; index <= 3; index++) {
+        for (let index = 0; index <= distance; index++) {
             strip.setPixelColor(index, neopixel.colors(NeoPixelColors.Blue))
         }
     }
     strip.show()
-    basic.pause(250)
+    basic.showNumber(distance)
+    basic.pause(1000)
 })
